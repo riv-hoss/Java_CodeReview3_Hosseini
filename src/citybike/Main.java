@@ -68,10 +68,56 @@ public class Main {
         Bike bike15 = new Bike("green", "Discarded");
 
         // add above bikes to station objects
-        stationOne.addBike(new ArrayList<>
-                (Arrays.asList(bike09, bike13, bike11))); // station 1
-        stationTwo.addBike(new ArrayList<>
-                (Arrays.asList(bike10, bike14, bike12, bike15))); // station 2
+        stationOne.addBike(bike09);                 // station 1
+        stationOne.addBike(bike11);
+        stationOne.addBike(bike13);
+
+        stationTwo.addBike(bike10);                 // station 2
+        stationTwo.addBike(bike12);
+        stationTwo.addBike(bike14);
+        stationTwo.addBike(bike15);
+
+        System.out.println("\n============================= station 1 ============================");
+        System.out.println(stationOne);
+        System.out.println("\n====================== station 2 " +
+                "is full and cannot accept bike15 ======================");
+        System.out.println(stationTwo);
+        System.out.println("\n============================= station 3 ============================");
+        System.out.println(stationThree);
+
+
+
+        // creating 3 users
+        User userOne = new User("John",  "Doe");
+        User userTwo = new User("Michael",  "Jackdaughter");
+        User userThree = new User("Clint",  "Westbush");
+        User userFour = new User("Tom",  "Softy");
+
+
+        // renting process - user rents bike
+        System.out.println("=================================================== Renting process ! " +
+                "=========================================================");
+
+        // userOne rent a bike from stationOne
+        System.out.println("\n============================= bikes of station #1" +
+                " BEFORE renting ============================");
+        System.out.println(stationOne.getBikes());
+
+        System.out.println("\n============================= bike of user #1" +
+                " BEFORE renting ============================");
+        System.out.println(userOne.getCurrentlyRentedBike());
+
+
+        System.out.println("\n============================= bikes of station #1" +
+                " AFTER renting ============================");
+        Bike bikeInProcessOfRent = stationOne.removeBike(bike11); // bike11 was added to stationOne before
+        System.out.println(stationOne.getBikes());
+
+        System.out.println("\n============================= bike of user #1" +
+                " AFTER renting ============================");
+        userOne.rentBike(bikeInProcessOfRent);
+        System.out.println(userOne.getCurrentlyRentedBike());
+
 
 
 

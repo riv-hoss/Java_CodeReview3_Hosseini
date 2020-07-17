@@ -30,6 +30,6 @@ public class Bike {
                 "bikeID=" + bikeID +
                 ", color='" + color + '\'' +
                 ", state=" + state +
-                '}';
+                "}\n\t\t";
     }
 }
