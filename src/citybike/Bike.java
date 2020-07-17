@@ -2,7 +2,7 @@ package citybike;
 
 public class Bike {
     private static int counter = 1;
-    private int bikeID;
+    protected final int bikeID;
     private String color;
     private String  state;
 

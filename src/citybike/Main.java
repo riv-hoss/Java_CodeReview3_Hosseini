@@ -97,7 +97,7 @@ public class Main {
 
 
         //////////////////////////////////// renting process - user rents bike //////////////////////////////////
-        System.out.println("\n=================================================== Renting process ! " +
+/*        System.out.println("\n=================================================== Renting process ! " +
                 "=========================================================");
 
         // userOne rent a bike from stationOne
@@ -112,7 +112,7 @@ public class Main {
 
         System.out.println("\n============================= bikes of station #1" +
                 " AFTER renting ============================");
-        Bike bikeInProcessOfRent = stationOne.removeBike(); // bike11 was added to stationOne before
+        //Bike bikeInProcessOfRent = stationOne.removeBike(); // bike11 was added to stationOne before
         System.out.println(stationOne.getBikes());
 
         System.out.println("\n============================= bike of user #1" +
@@ -122,7 +122,7 @@ public class Main {
         System.out.println("Printing userOne calling toString(): \n" + userOne);
 
 
-        // userOne return rented bike to the stationTwo
+        userOne return rented bike to the stationTwo
         System.out.println("\n============================= bikes of station #2" +
                 " BEFORE user #1 returns the bike ============================");
         System.out.println(stationTwo.getBikes());
@@ -138,8 +138,19 @@ public class Main {
         System.out.println("\n============================= bike of user #1" +
                 " AFTER returning ============================");
         System.out.println(userOne.getCurrentlyRentedBike());
-        System.out.println("Printing userOne calling toString(): \n" + userOne);
+        System.out.println("Printing userOne calling toString(): \n" + userOne);*/
 
+
+        System.out.println("userOne BEFORE rent: \n" + userOne);
+        userOne.rentBike(stationOne);
+        System.out.println("stationOne AFTER rent: \n" + stationOne);
+        System.out.println("userOne AFTER rent: \n" + userOne);
+
+        userOne.returnBike(stationTwo);
+        System.out.println("userOne AFTER return rental to stationTwo: \n" + userOne);
+        System.out.println("stationTwo AFTER rental return: \n" + stationTwo);
+
+        System.out.println("\nRent log is: \n" + userOne.rent);
 
     }
 }

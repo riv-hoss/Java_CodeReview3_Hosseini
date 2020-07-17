@@ -2,19 +2,22 @@ package citybike;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class User {
     private static int counter = 1;
-    private int userID;
+    protected final int userID;
     private String fname;
     private String lname;
     private ArrayList<Bike> currentlyRentedBike; // rethink later, maybe boolean or 1/0
+    protected Rent rent;
 
     public User(String fname, String lname) {
         this.userID = counter++;
         this.fname = fname;
         this.lname = lname;
         this.currentlyRentedBike = new ArrayList<Bike>(); // empty ArrayList for rented bike
+        this.rent = new Rent();
     }
 
     public ArrayList<Bike> getCurrentlyRentedBike() {
@@ -26,18 +29,28 @@ public class User {
     }
 
     // rent bike method
-    public void rentBike(Bike bike) { // no group rent! just one at a time.
+    public void rentBike(Station station) { // no group rent! just one at a time.
         if (currentlyRentedBike.isEmpty()) {
-            this.setCurrentlyRentedBike(new ArrayList<Bike>(Arrays.asList(bike)));
+            Bike rentbike = station.removeBike();
+
+            Date startDate = new Date(); // current date and time of rent
+            this.rent.startDate = startDate; // keep track of start rent date
+            this.rent.bikeID = rentbike.getBikeID(); // keep track of bikeID
+
+            currentlyRentedBike.add(rentbike);
         } else { // if user has already rented a bike
-            System.out.println("You are currently riding bike #" + currentlyRentedBike.get(0).getBikeID());
+            System.out.println("You are currently riding bike #" +
+                    currentlyRentedBike.get(0).getBikeID());
         }
 
     }
 
     // return rented bike method
-    public Bike returnBike () {
-        return this.currentlyRentedBike.remove(0);
+    public void returnBike (Station station) {
+        Date endDate = new Date();
+        this.rent.endDate = endDate;
+        station.addBike(currentlyRentedBike.remove(0));
+       // return this.currentlyRentedBike.remove(0);
     }
 
     @Override
