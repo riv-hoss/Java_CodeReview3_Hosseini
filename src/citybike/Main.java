@@ -1,5 +1,6 @@
 package citybike;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -50,6 +51,27 @@ public class Main {
         Station stationTwo = new Station(locationTwo, bikeArrayListTwo);
         Station stationThree = new Station(locationThree, bikeArrayListThree);
 
+        HashMap<Integer, Station> stations = new HashMap<>()
+        {{
+            put(stationOne.getStationID(), stationOne);
+            put(stationTwo.getStationID(), stationTwo);
+            put(stationThree.getStationID(), stationThree);
+        }};
+
+        // create new bikes to add them to station objects using addBike() method
+        Bike bike09 = new Bike("white", "CanNotBeRented");
+        Bike bike10 = new Bike("gray", "CanBeRented");
+        Bike bike11 = new Bike("light gray", "CanBeRented");
+        Bike bike12 = new Bike("silver", "CanBeRented");
+        Bike bike13 = new Bike("red", "InService");
+        Bike bike14 = new Bike("green", "InService");
+        Bike bike15 = new Bike("green", "Discarded");
+
+        // add above bikes to station objects
+        stationOne.addBike(new ArrayList<>
+                (Arrays.asList(bike09, bike13, bike11))); // station 1
+        stationTwo.addBike(new ArrayList<>
+                (Arrays.asList(bike10, bike14, bike12, bike15))); // station 2
 
 
 
