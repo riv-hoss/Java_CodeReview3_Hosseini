@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class User {
     private static int counter = 1;
-    protected int userID;
+    private int userID;
     private String fname;
     private String lname;
     private ArrayList<Bike> currentlyRentedBike; // rethink later, maybe boolean or 1/0

@@ -139,7 +139,6 @@ public class Main {
                 " AFTER returning ============================");
         System.out.println(userOne.getCurrentlyRentedBike());
         System.out.println("Printing userOne calling toString(): \n" + userOne);
-        System.out.println(userFour.userID);
 
 
     }
