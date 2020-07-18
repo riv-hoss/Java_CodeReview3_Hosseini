@@ -2,9 +2,9 @@ package citybike;
 
 import java.util.Date;
 public class Rent {
-    public int bikeID;
-    public Date startDate;
-    public Date endDate;
+    protected int bikeID;
+    protected Date startDate;
+    protected Date endDate;
 
 
     @Override

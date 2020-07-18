@@ -32,10 +32,9 @@ public class User {
     public void rentBike(Station station) { // no group rent! just one at a time.
         if (currentlyRentedBike.isEmpty()) {
             Bike rentbike = station.removeBike();
-
-            Date startDate = new Date(); // current date and time of rent
-            this.rent.startDate = startDate; // keep track of start rent date
-            this.rent.bikeID = rentbike.getBikeID(); // keep track of bikeID
+            // current date is automatically created when this method called
+            this.rent.startDate = new Date();
+            this.rent.bikeID = rentbike.getBikeID();
 
             currentlyRentedBike.add(rentbike);
         } else { // if user has already rented a bike
@@ -47,8 +46,8 @@ public class User {
 
     // return rented bike method
     public void returnBike (Station station) {
-        Date endDate = new Date();
-        this.rent.endDate = endDate;
+        // current date is automatically created when this method called
+        this.rent.endDate = new Date();
         station.addBike(currentlyRentedBike.remove(0));
        // return this.currentlyRentedBike.remove(0);
     }

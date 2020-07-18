@@ -82,9 +82,11 @@ public class Main {
                 "is full and cannot accept bike #15 ======================");
         stationOne.addBike(bike15);
         System.out.println(stationOne.getBikes());
-        System.out.println("\n============================= station #2 ============================");
+        System.out.println("\n============================= station #2 " +
+                "============================");
         System.out.println(stationTwo.getBikes());
-        System.out.println("\n============================= station #3 ============================");
+        System.out.println("\n============================= station #3 " +
+                "============================");
         System.out.println(stationThree.getBikes());
 
 
@@ -121,11 +123,17 @@ public class Main {
                 " rental =========================%n%s %n", stationTwo);
 
         /////// Rent Log //////
-        System.out.println("\n****************************************************************" +
-                "======= Rent Log ! ================================" +
-                "=========================\n");
+        System.out.println("\n*******************************************" +
+                "**************** Rent Log! ************************" +
+                "*****************************************\n");
 
         System.out.println(userOne.rent);
+
+        System.out.println("\n*******\nNOTE: \nStart and end dates are automatically " +
+                "created and they are showing current \ndates of rent/return. Start and " +
+                "end dates are being created when 'rentBike()'\nor 'returnBike()' methods" +
+                " are triggered. However, they can be \nmanually created and added " +
+                "to the process. \n********");
 
     }
 }
