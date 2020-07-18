@@ -58,8 +58,8 @@ public class Station {
     public Bike removeBike () {
         categorizeBikes(); // categorize all bikes based on their status
         Scanner in = new Scanner(System.in);
-        System.out.println("Bikes with following numbers are available: " + availableBikeIDs);
-        System.out.print("Enter the bike number you want to rent:  ");
+        System.out.println("\nBikes with following numbers are available: " + availableBikeIDs);
+        System.out.print("\nEnter the bike number you want to rent:  ");
         System.out.println();
         int selectedID = in.nextInt();
         int ind = 0;
